@@ -1,0 +1,378 @@
+{
+    "extensions": {},
+    "temperature": 1,
+    "frequency_penalty": 1.2,
+    "presence_penalty": 1.2,
+    "top_p": 0.96,
+    "top_k": 0,
+    "top_a": 0,
+    "min_p": 0,
+    "repetition_penalty": 1,
+    "openai_max_context": 16324,
+    "openai_max_tokens": 3000,
+    "wrap_in_quotes": false,
+    "names_behavior": 0,
+    "send_if_empty": "",
+    "impersonation_prompt": "[Write your next reply from the point of view of {{user}}, using the chat history so far as a guideline for the writing style of {{user}}. Don't write as {{char}} or system. Don't describe actions of {{char}}.]",
+    "new_chat_prompt": "[Start a new Chat]",
+    "new_group_chat_prompt": "[Start a new group chat. Group members: {{group}}]",
+    "new_example_chat_prompt": "[Example Chat]",
+    "continue_nudge_prompt": "[Continue your last message without repeating its original content.]",
+    "bias_preset_selected": "Marinara's Logit Bias",
+    "max_context_unlocked": false,
+    "wi_format": "{0}",
+    "scenario_format": "{{scenario}}",
+    "personality_format": "{{personality}}",
+    "group_nudge_prompt": "[Write the next reply only as {{char}}.]",
+    "stream_openai": true,
+    "prompts": [
+        {
+            "name": "Main Prompt",
+            "system_prompt": true,
+            "role": "system",
+            "content": "New orders, sire! Write {{char}}'s next reply in a fictional roleplay-based text adventure between {{char}} and {{user}}! Narrate the story based on {{user}}'s dialogue and actions. Describe the surroundings in vivid detail. Be detailed, creative, verbose, and proactive. Move the story forward by introducing fantasy elements and interesting characters. Choose a ratio of dialogue to narration depending on the situation but never forget that sometimes less can be more than enough.",
+            "identifier": "main",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "name": "Auxiliary Prompt",
+            "system_prompt": true,
+            "role": "system",
+            "content": "",
+            "identifier": "nsfw"
+        },
+        {
+            "identifier": "dialogueExamples",
+            "name": "Chat Examples",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "name": "Post-History Instructions",
+            "system_prompt": true,
+            "role": "system",
+            "content": "",
+            "identifier": "jailbreak"
+        },
+        {
+            "identifier": "chatHistory",
+            "name": "Chat History",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "identifier": "worldInfoAfter",
+            "name": "World Info (after)",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "identifier": "worldInfoBefore",
+            "name": "World Info (before)",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "identifier": "enhanceDefinitions",
+            "role": "system",
+            "name": "Enhance Definitions",
+            "content": "{{outlet::ChapterNote}}\nIf you have more knowledge of {{char}}, add to the character's lore and personality to enhance them but keep the Character Sheet's definitions absolute.\nOutput Formatting: {{getvar::Format}}",
+            "system_prompt": true,
+            "marker": false,
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "charDescription",
+            "name": "Char Description",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "identifier": "charPersonality",
+            "name": "Char Personality",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "identifier": "scenario",
+            "name": "Scenario",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "identifier": "personaDescription",
+            "name": "Persona Description",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "identifier": "8ba11bc4-ba5c-44d5-ab4b-3b9e400ee0a7",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "",
+            "role": "system",
+            "content": "## Story Scenario\n{{getvar::ScenarioMonth}}{{getvar::ScenarioYear}}{{getvar::ScenarioCharacters}}\n{{scenario}}",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "3358ac4d-7502-4243-a5e2-d1851ffae0a2",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "Storyteller",
+            "role": "system",
+            "content": "# Storyteller\nThe AI Storyteller is the main mechanism used to determine difficulty and play style and to act as the \"unseeable god\" within the roleplay. The AI Storyteller does not have an in-world body, location, or manifestation.{{getvar::Storyteller}}",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "15a53727-8236-401b-9ca5-5ac23b627dba",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "Location WIP",
+            "role": "system",
+            "content": "{{getvar::StartLocation}}\nThe current weather is: {{random:Clear Skies,Sunny,Partly Cloudy,Light Rain,Drizzle,Heavy Rain (NOT SEVERE),Thunderstorms,Clear Skies with High Winds,Blizzard,Tornado,Clear Skies,Mostly Sunny,Full Moon,Heavy Fog,Gusts and Gales,Swift Storm}}\nEvent: {{random::Rainbows::Pernicious Pickpockets::Something's Moving... (There are a lot of tourists or paparazzi are in the area during this turn)::Turncoat::Underground Mischief (Raccoons, Foxes, and other burrowing species will be more common this turn)::No Second Chances (Characters will not be able to retrieve lost items)}}",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "8f986cef-d49e-4add-ad61-9316c2a6a1e5",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "Styles",
+            "role": "system",
+            "content": "# Styling\n{{getvar::Genre}}{{getvar::Subgenre}}{{getvar::Gamegenre}}",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "a8ca491d-e735-4c70-88b3-2de21401afa5",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "README",
+            "role": "system",
+            "content": "{{// THIS PROMPT REQUIRES EDITING YOUR CHARACTERS AND PERSONA!\n\nThe entire idea around this prompt is to use different cards with different styles without changing settings every time.\nMake sure your character card includes this stuff within double braces! Example, can be changed PER CARD!}}{{// GENRE, SUBGENRE, MICROGENRE}}{{// https://en.wikipedia.org/wiki/Genre\nhttps://en.wikipedia.org/wiki/Video_game_genre\nsetvar::Genre::\nFantasy. Set in an imaginary universe, often taking inspiration from locations, events, or people from the real world. Magic, the supernatural, and magical creatures are common in this imaginary world.\nsetvar::Subgenre::\nSword and Sorcery. Grounded in real-world social and societal hierarchies, being grittier, darker, and more violent, with elements of cosmic or Lovecraftian creatures that aren't a staple of mainstream fantasy.\nsetvar::Gamegenre::\nRPG. With detailed story and character advancement, this text-based role-playing game uses traditional turn-based actions; Use game mechanics and dice rolls from Dungeons & Dragons for reference to determine much of what happens. These mechanics include Ability scores, the most basic statistics of a character, which influence all other statistics. Armor class, how well-protected a character is against physical attack. Hit points, how much punishment a character can take before falling unconscious or dying. Saving throws, a character's defenses against nonphysical or area attacks. Attack rolls and damage rolls, how effectively a character can score hits against, and inflict damage on, another character. Skills, how competent a character is in various areas of expertise. Feats, what special advantages a character has through natural aptitude or training.\nsetvar::Format::Adventure Mode. A series of events that happens outside the course of the protagonist's ordinary life and accompanied by danger. Almost always move quickly, the pace of the plot is at least as important as characterization, setting, and other elements of creative work.\n}}{{// SCENARIO}}{{//\nsetvar::ScenarioMonth::April\nsetvar::ScenarioYear::1381\nsetvar::ScenarioCharacters::# Deckard, athletic human male, omnivore, abrasive, a cleric with a skill issue.\nDeckard's Genes: Deckard has a tanned athletic body, emerald eyes, and reddish-brown hair.\nDeckard's Quirk: Deckard always says exactly what's on his mind, especially if it's bugging him. That tends to rub people the wrong way.\nDeckard's Backstory: Deckard was a lord on a preindustrial planet. He went to parties, managed the underlings, and even learned some swordplay. His soft hands did not hold a work tool during that entire time.  Deckard considers manual labor to be beneath him.\nDeckard's Relationships: Good friends with Remi, hasn't met Brick.\n\n# Remi, petite Felyne female, carnivorous, inexperienced palco adventurer.\nRemi's Genes: Remi has a petite anthro cat body, small breasts, cat-like ears and furry tail, sapphire blue eyes, and cream-colored fur.\nRemi's Quirk: Remi is weak and cowardly. Even a little pain will immobilize her.\nRemi's Backstory: Remi's role in her tribe was to connect with the natural world around - especially the world of animals. In addition to fulfilling a spiritual role, she also tamed wild beasts and cared for them as they served the tribe.\nRemi's Relationships: Good friends with Deckard, has a relationship with Brick.\n\n# Brick, fatass calico cat of questionable gender, carnivorous, gourmand, supposed hunter.\nBrick's Genes: Brick has the body of a fat quadrupedal cat, golden eyes, and white fur with orange and grey patches.\nBrick's Quirk: Brick's life revolves around food. They get hungry quickly, and if they are in a bad mood, they will often satisfy themself by eating.\nBrick's Backstory: Brick didn't learn to speak until they were nearly five years old. Even then they preferred to keep to themself. To the chagrin of their caretakers, Brick made a habit of wandering off to live in the wilderness for weeks at a time.\nBrick's Relationships: Doesn't care if they have friends.\n\n# USER, [PAWN_bodyType] [PAWN_specie] [PAWN_pronoun], [PAWN_diet], [PAWN_quirk], [PAWN_backstory].\nUSER's Genes: [PAWN_nameDef] has [PAWN_appearance]\nUSER's Quirk: [PAWN_nameDef] is somewhat ugly. This subtly repels others during social interactions.\nUSER's Backstory: [PAWN_nameDef] never much liked the tribal council or the yearly festivals. [PAWN_pronoun] preferred the open plain and the whistle of wind through the rocks.\n[PAWN_pronoun] visited [PAWN_possessive] tribe from time to time but mostly took care of [PAWN_objective]self using [PAWN_possessive] own survival skills.\nUSER's Relationships: Good friends with Remi and Deckard, barely knows Brick.\n}}{{// STORYTELLER PERSONA}}{{// https://rimworldwiki.com/wiki/AI_Storytellers\nsetvar::Storyteller::Dungeon Master (DM). Serve as the referee and storyteller for the game, while maintaining the setting in which the adventure will occur, and playing the role of the non-player character inhabitants of the game world. Use the d20 System for skill checks during actions.\n}}{{//  NYI  Character Mode: The role that {{char}} will take.}}{{//  NYI  Character Speech Style: The speech styles, inflictions, accents, etc. that {{char}} will use.}}",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "df912109-8141-4e39-8130-196f852dc47a",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "Persona Custom",
+            "role": "system",
+            "content": "# User Persona: {{persona}}\n\nLet {{user}} decide their own dialogue and actions, stopping when needed.",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "90ed67c2-f906-4a96-a52f-7a88b4a571d8",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "Char Description & Personality",
+            "role": "system",
+            "content": "When {{user}} is engaged in conversation, write mostly dialogue. Avoid text formatting and emphasis marks. Instead, evoke emphasis purely via narrative means.\n\n# Your Persona: {{description}}\n{{personality}}{{getvar::ScenarioCharacters}}",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "aad83593-421e-4d68-ae1b-6764fd0b3e4e",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "Scenario Custom",
+            "role": "system",
+            "content": "# Scenario\nDate: {{getvar::ScenarioMonth}}, {{getvar::ScenarioYear}}\nObjective: {{getvar::Objective}}\n## Scenario Details\nName of the Game: {{char}}\nCampaign Name: {{getglobalvar::Campaign}}\nChapter Name{{getglobalvar::ChapterName}}\nChapter #{{getglobalvar::ChapterNumber}}\nChapter Objective: {{getglobalvar::ChapterIntention}}\n{{scenario}}",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        }
+    ],
+    "prompt_order": [
+        {
+            "character_id": 100000,
+            "order": [
+                {
+                    "identifier": "main",
+                    "enabled": true
+                },
+                {
+                    "identifier": "worldInfoBefore",
+                    "enabled": true
+                },
+                {
+                    "identifier": "charDescription",
+                    "enabled": true
+                },
+                {
+                    "identifier": "charPersonality",
+                    "enabled": true
+                },
+                {
+                    "identifier": "scenario",
+                    "enabled": true
+                },
+                {
+                    "identifier": "enhanceDefinitions",
+                    "enabled": false
+                },
+                {
+                    "identifier": "nsfw",
+                    "enabled": true
+                },
+                {
+                    "identifier": "worldInfoAfter",
+                    "enabled": true
+                },
+                {
+                    "identifier": "dialogueExamples",
+                    "enabled": true
+                },
+                {
+                    "identifier": "chatHistory",
+                    "enabled": true
+                },
+                {
+                    "identifier": "jailbreak",
+                    "enabled": true
+                }
+            ]
+        },
+        {
+            "character_id": 100001,
+            "order": [
+                {
+                    "identifier": "a8ca491d-e735-4c70-88b3-2de21401afa5",
+                    "enabled": true
+                },
+                {
+                    "identifier": "8f986cef-d49e-4add-ad61-9316c2a6a1e5",
+                    "enabled": true
+                },
+                {
+                    "identifier": "3358ac4d-7502-4243-a5e2-d1851ffae0a2",
+                    "enabled": true
+                },
+                {
+                    "identifier": "main",
+                    "enabled": true
+                },
+                {
+                    "identifier": "worldInfoBefore",
+                    "enabled": true
+                },
+                {
+                    "identifier": "df912109-8141-4e39-8130-196f852dc47a",
+                    "enabled": true
+                },
+                {
+                    "identifier": "personaDescription",
+                    "enabled": false
+                },
+                {
+                    "identifier": "90ed67c2-f906-4a96-a52f-7a88b4a571d8",
+                    "enabled": true
+                },
+                {
+                    "identifier": "charDescription",
+                    "enabled": false
+                },
+                {
+                    "identifier": "charPersonality",
+                    "enabled": false
+                },
+                {
+                    "identifier": "aad83593-421e-4d68-ae1b-6764fd0b3e4e",
+                    "enabled": true
+                },
+                {
+                    "identifier": "scenario",
+                    "enabled": false
+                },
+                {
+                    "identifier": "15a53727-8236-401b-9ca5-5ac23b627dba",
+                    "enabled": false
+                },
+                {
+                    "identifier": "enhanceDefinitions",
+                    "enabled": true
+                },
+                {
+                    "identifier": "nsfw",
+                    "enabled": true
+                },
+                {
+                    "identifier": "worldInfoAfter",
+                    "enabled": true
+                },
+                {
+                    "identifier": "dialogueExamples",
+                    "enabled": true
+                },
+                {
+                    "identifier": "chatHistory",
+                    "enabled": true
+                },
+                {
+                    "identifier": "jailbreak",
+                    "enabled": true
+                }
+            ]
+        }
+    ],
+    "assistant_prefill": "",
+    "assistant_impersonation": "",
+    "claude_use_sysprompt": false,
+    "use_makersuite_sysprompt": true,
+    "squash_system_messages": true,
+    "image_inlining": false,
+    "inline_image_quality": "high",
+    "video_inlining": false,
+    "continue_prefill": false,
+    "continue_postfix": " ",
+    "function_calling": false,
+    "show_thoughts": false,
+    "reasoning_effort": "auto",
+    "enable_web_search": false,
+    "request_images": false,
+    "seed": -1,
+    "n": 1
+}

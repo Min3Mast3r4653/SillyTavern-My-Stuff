@@ -1,0 +1,1361 @@
+{
+    "chat_completion_source": "custom",
+    "openai_model": "gpt-4-turbo",
+    "claude_model": "claude-3-5-sonnet-20240620",
+    "openrouter_model": "deepseek/deepseek-chat-v3-0324:free",
+    "openrouter_use_fallback": false,
+    "openrouter_group_models": false,
+    "openrouter_sort_models": "alphabetically",
+    "openrouter_providers": [],
+    "openrouter_allow_fallbacks": true,
+    "openrouter_middleout": "auto",
+    "ai21_model": "jamba-1.5-large",
+    "mistralai_model": "mistral-large-latest",
+    "cohere_model": "command-r-plus",
+    "perplexity_model": "r1-1776",
+    "groq_model": "llama-3.3-70b-versatile",
+    "xai_model": "grok-3-beta",
+    "pollinations_model": "gemini",
+    "aimlapi_model": "gpt-4o-mini-2024-07-18",
+    "electronhub_model": "gpt-4o-mini",
+    "electronhub_sort_models": "alphabetically",
+    "electronhub_group_models": false,
+    "moonshot_model": "kimi-latest",
+    "fireworks_model": "accounts/fireworks/models/kimi-k2-instruct",
+    "cometapi_model": "gpt-4o",
+    "custom_model": "dans-personalityengine-v1.3.0-12b-i1",
+    "custom_url": "http://192.168.1.137:5001/v1",
+    "custom_include_body": "",
+    "custom_exclude_body": "",
+    "custom_include_headers": "",
+    "custom_prompt_post_processing": "",
+    "google_model": "gemini-pro",
+    "vertexai_model": "gemini-2.0-flash-001",
+    "azure_base_url": "",
+    "azure_deployment_name": "",
+    "azure_api_version": "2024-02-15-preview",
+    "azure_openai_model": "",
+    "temperature": 1,
+    "frequency_penalty": 1.2,
+    "presence_penalty": 1.2,
+    "top_p": 0.96,
+    "top_k": 0,
+    "top_a": 0,
+    "min_p": 0,
+    "repetition_penalty": 1,
+    "openai_max_context": 16324,
+    "openai_max_tokens": 500,
+    "wrap_in_quotes": false,
+    "names_behavior": 0,
+    "send_if_empty": "",
+    "impersonation_prompt": "[Write your next reply from the point of view of {{user}}, using the chat history so far as a guideline for the writing style of {{user}}. Don't write as {{char}} or system. Don't describe actions of {{char}}.]",
+    "new_chat_prompt": "[Start a new Chat]",
+    "new_group_chat_prompt": "[Start a new group chat. Group members: {{group}}]",
+    "new_example_chat_prompt": "[Example Chat]",
+    "continue_nudge_prompt": "[Continue your last message without repeating its original content.]",
+    "bias_preset_selected": "Marinara's Logit Bias",
+    "reverse_proxy": "",
+    "proxy_password": "",
+    "max_context_unlocked": false,
+    "wi_format": "{0}",
+    "scenario_format": "{{scenario}}",
+    "personality_format": "{{personality}}",
+    "group_nudge_prompt": "[Write the next reply only as {{char}}.]",
+    "stream_openai": true,
+    "prompts": [
+            {
+                "name": "Main Prompt",
+                "system_prompt": true,
+                "role": "system",
+                "content": "Write a roleplay using the following information.\n# Essential components\n{{getvar::Storyteller}}\n{{getvar::Difficulty}}\n# Themes, modifiers, and essential mechanics.\n{{getvar::CharTheme1}}\n{{getvar::CharTheme2}}\n{{getvar::CharTheme3}}\n{{getvar::CharTheme4}}\n{{getvar::UserTheme1}}\n{{getvar::UserTheme2}}\n# Dialogue Modifiers\n{{getvar::CharSpeech1}}\n{{getvar::CharSpeech2}}\n{{getvar::UserSpeech1}}\n{{getvar::UserSpeech2}}\n# Predetermined Roles\n{{getvar::CharMode}}\n{{getvar::UserMode}}",
+                "identifier": "main",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "name": "Auxiliary Prompt",
+                "system_prompt": true,
+                "role": "system",
+                "content": "",
+                "identifier": "nsfw"
+            },
+            {
+                "identifier": "dialogueExamples",
+                "name": "Chat Examples",
+                "system_prompt": true,
+                "marker": true
+            },
+            {
+                "name": "Post-History Instructions",
+                "system_prompt": true,
+                "role": "system",
+                "content": "",
+                "identifier": "jailbreak"
+            },
+            {
+                "identifier": "chatHistory",
+                "name": "Chat History",
+                "system_prompt": true,
+                "marker": true
+            },
+            {
+                "identifier": "worldInfoAfter",
+                "name": "World Info (after)",
+                "system_prompt": true,
+                "marker": true
+            },
+            {
+                "identifier": "worldInfoBefore",
+                "name": "World Info (before)",
+                "system_prompt": true,
+                "marker": true
+            },
+            {
+                "identifier": "enhanceDefinitions",
+                "role": "system",
+                "name": "Enhance Definitions",
+                "content": "If you have more knowledge of {{char}}, add to the character's lore and personality to enhance them but keep the Character Sheet's definitions absolute.",
+                "system_prompt": true,
+                "marker": false
+            },
+            {
+                "identifier": "charDescription",
+                "name": "Char Description",
+                "system_prompt": true,
+                "marker": true
+            },
+            {
+                "identifier": "charPersonality",
+                "name": "Char Personality",
+                "system_prompt": true,
+                "marker": true
+            },
+            {
+                "identifier": "scenario",
+                "name": "Scenario",
+                "system_prompt": true,
+                "marker": true
+            },
+            {
+                "identifier": "personaDescription",
+                "name": "Persona Description",
+                "system_prompt": true,
+                "marker": true
+            },
+            {
+                "identifier": "0d02e69c-6f58-4d96-93eb-98d8faf3aae9",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Theme: Fantasy",
+                "role": "system",
+                "content": "A fantastical adventure awaits you!{{setvar::GenreOne::## Fantasy Genre\n\"There is a fifth dimension beyond that which is known to man. It is a dimension as vast as space and as timeless as infinity. It is the middle ground between light and shadow, between science and superstition. And it lies between the pit of man's fears and the summit of his knowledge. This is the dimension of imagination. It is an area we which we call the twilight zone.\"\nA major theme in this roleplay is the supernatural Fantasy Genre, full of wizards and magic, oh, and dragons too. The technology in this roleplay has now been limited to the Iron Age, when encountering newer technology, remember the phrase: \"Any sufficiently advanced technology is indistinguishable from magic.\"}}\n",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "a434df88-ade6-4624-adfe-2b0f14b94ae6",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: General",
+                "role": "system",
+                "content": "# You know, it wasn't always like this. Difficulty settings have been enabled. This will determine just how hard life will be for the characters.",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "8468b31c-fb41-4fbd-bb6a-df6a2f910ea6",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: EnableThreatScale",
+                "role": "system",
+                "content": "Too hard? Too easy? Scaling Threats to your desired difficulty is now possible.{{setvar::EnableThreatScale::\n## Threat Scale\nAdjust the size of threats like raids and infestations, the difficulty of quests, and the difficulty of skill-based actions like persuasion or agility.}}{{setvar::ThreatScale:: Threat Scale is set to 1. Enemies and actions will not be harder or easier.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "92b10355-23bf-4d3e-9b8b-774fb7846653",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: EnableMajorThreats",
+                "role": "system",
+                "content": "Boss battles and overwhelming force galore! Some Major Threats are coming.{{setvar::EnableMajorThreats::## Major Threats\nAllows the creation of major threats such as raids, infestations, manhunter packs, crashed ships, and more.}}{{setvar::MajorThreats:: Major Threats are ENABLED. Sudden boss fights are allowed!}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "6c30e037-d948-4cae-bbf8-06ffdeea9663",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: EnableQuestThreats",
+                "role": "system",
+                "content": "Ready for a dangerous job? Threatening Quests are now available.{{setvar::EnableQuestThreats::## Quest Threats\nAllow violent threats and challenges to occur during quests or missions.}}{{setvar::QuestThreats:: Quest Threats are ENABLED. Combat is more common during expeditions.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "2aa592c9-49e3-4aa9-908c-2f538e2726ce",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: EnableIntroThreats",
+                "role": "system",
+                "content": "Be prepared for early-on conflicts! Or Intro Threats, as we know them.{{setvar::EnableIntroThreats::## Intro Threats\nThe generation of threats, enemies, and meta-events is now allowed before turn 5.}}{{setvar::IntroThreats:: Intro Threats are ENABLED. It is currently turn {{lastMessageId}}, attempt {{currentSwipeId}}}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "c4e28338-2bbc-4281-9dbf-b48ce4c4a60d",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: EnablePredators",
+                "role": "system",
+                "content": "Predators are out and about. They're coming for you.{{setvar::EnablePredators::## Predators Hunt\nWild predators and animals from outside of events are allowed to hunt both essential and non-essential characters.}}{{setvar::Predators:: Predators Hunt NPCs are ENABLED. Non-event predator species may now attack characters.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "94de4ff9-30a1-47db-98bb-51917650070a",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: EnableWeather",
+                "role": "system",
+                "content": "We're whipping up a storm over here! Weather will now change from time to time.{{setvar::EnableWeather::## Extreme Weather\nAllow incidents such as, but not limited to, blizzards, thunderstorms, toxic fallout, volcanic eruptions, and flashstorms to occur.}}{{setvar::Weather:: Extreme Weather is ENABLED. Dangerous and sudden weather changes may occur throughout the roleplay. The current weather is: {{random:Clear Skies,Sunny,Partly Cloudy,Light Rain,Drizzle,Heavy Rain NON SEVERE,Thunderstorms,Clear Skies with High Winds,Blizzard,Tornado,Clear Skies,Mostly Sunny,Full Moon,Heavy Fog,Gusts and Gales,Swift Storm}}}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "ccdd4cd2-e74a-46c4-83c4-5829e0f5646a",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "System: Difficulty",
+                "role": "system",
+                "content": "# Difficulty Settings\nMode: {{getvar::Difficulty}}{{getvar::EnableThreatScale}}{{getvar::ThreatScale}}{{getvar::EnableMajorThreats}}{{getvar::MajorThreats}}{{getvar::EnableQuestThreats}}{{getvar::QuestThreats}}{{getvar::EnableIntroThreat}}{{getvar::IntroThreat}}{{getvar::EnablePredators}}{{getvar::Predators}}{{getvar::EnableWeather}}{{getvar::Weather}}{{getvar::Events}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "2340809d-1d05-4518-b559-1c766e06c0b0",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "README",
+                "role": "system",
+                "content": "{{setvar::Length::50-200 Tokens}}{{setvar::Prose::Creative and direct, subtle and not-so-subtle humor allowed}}{{setvar::Pace::Fast paced, snappy responses between characters no longer than a paragraph or two at most.}}{{//\n\nIntegrated-Prompt Test\n\nYes, I copied the needs modifier from the Rimworld wiki, a part of the CoD Ghosts opening video in the Hardship modifier, and yes, I even used the Twilight Zone as a reference in the Fantasy Theme, it gave me unique responses on small LLMs.\n\n> USER VARIABLES TEMPLATE AT BOTTOM\n\nThemes:\n   Cyberpunk (NYI)\n   Fantasy\n   Medieval (NYI)\n   Science-fiction (NYI)\nDifficulty:\n   Levels:\n      Peaceful\n      Community Builder\n      Adventure Story\n      Strive to Survive\n      Blood and Dust\n      Losing is Fun\n   Systems:\n      Threat Scaling\n      Major Threats\n      Quest Threats\n      Intro Threats\n      Predators\n      Weather\n      Events\nModifiers:\n   Hardship (Skill check)\n   Needs (WIP)\n   Inference (WIP)\nConflicting Settings:\n   GenreOne: Fantasy/Sci-fi (NYI) - Cyberpunk (NYI)/Medieval (NYI)\n   GenreTwo: Noir (NYI) - Cartoon (NYI) - (NYI)\n   Difficulty settings with the same name (NYI)\n   Difficulty: Peaceful - Community Builder - Adventure Story - Strive to Survive - Blood and Dust - Losing is Fun\n   Difficulty: Any Difficulty setting that has \"Enable\" in its name - DisableExtras\n   Storyteller: Cassandra Classic - Phoebe Chillax - Randy Random\n   CharMode: Main Character - Side Character - Scenario (NYI)\n   UserMode: Main Character - Side Character - Narrator (NYI)\n   GameMode: Roleplay (NYI) - Text Adventure (NYI) - Online Chat (NYI)\n\nUser Themes are used so that your persona directly influences the story, despite the character card, adding extra depth and personality to make it \"unique\" yet consistent for each persona.\n\n}}{{setvar::UserTheme1::\n\n}}{{setvar::UserTheme2::\n\n}}{{// \n> User Speech Style Used so that the LLM knows your general writing style and examples.\n\n}}{{setvar::UserSpeech1::\n# Ugly Voice\n<USER>'s voice has a particularly grating, nasal quality to it, and tends to talk in barked, garbled phrases. This predisposes others to dislike them.\n\n}}{{setvar::UserSpeech2::\n# Kind\n<USER> is an exceptionally agreeable and giving person. S/He never insults others and will sometimes offer kind words to brighten the moods of those around her/him. S/He also never judges people by their appearance. \n\n}}{{setvar::UserDialogue::\n## <USER>\n\n}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "d59a528e-5b7f-48e9-b3e7-e8136150614a",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: EnableEvents",
+                "role": "system",
+                "content": "The Event system is enabled.{{setvar::Event::Events like {{random::Rainbows::Pernicious Pickpockets::Something's Moving... (There are a lot of tourists or paparazzi are in the area during this turn)::Touch and Go (Turn will be paced faster)::Turncoat::Underground Mischief (Raccoons, Foxes, and other burrowing species will be more common this turn)::No Second Chances (Characters will not be able to retrieve lost items if lost during this turn!)::Sudden Party::Raiders!::Eerie Silence::Wanderer Joins::{{user}} trips on a pebble::{{char}} trips on a pebble::Stampede!::Prankster::Wanted Criminal}} are {{random::more,less}} likely to occur this round. }}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "64577064-9179-444a-9e10-f4bee2077ce6",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: Peaceful",
+                "role": "system",
+                "content": "Finally, world Peace!\n{{setvar::Difficulty::Peaceful\nBuild a community in a sandbox environment. Major direct threats are disabled, but challenges like disease, mental breaks, and mad animals can still occur. Recommended for players who want to learn roleplay mechanics with minimal pressure, roleplayers who just want to chat, or roleplayers who just want to relax.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "8483fe94-bfd0-43fa-b09c-b3a256886273",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: Community Builder",
+                "role": "system",
+                "content": "Are we building a Community over here?{{setvar::Difficulty::Community builder\nBuild a world-traveling adventure with a taste of danger. Threats appear, but they're weakened. Recommended for roleplayers who are new to roleplaying, roleplayers who want to have a perfect experience, or roleplayers who want to relax.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "77ef77cf-6246-46f3-9fee-abf85ad98650",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: Adventure Story",
+                "role": "system",
+                "content": "We're going on an adventure, and you're coming with us.{{setvar::Difficulty::Adventure Story\nThere's room to grow and thrive, but it's still a dangerous planet. Recommended for experienced roleplayers on their first strategy-based roleplay or experienced roleplayers who want some breathing room to pursue funny or weird goals.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "c12412a4-f7be-4e79-8c5a-79b0d84d1c0c",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: Strive to Survive",
+                "role": "system",
+                "content": "We've still got a long way to go, but its still war.\n{{setvar::Difficulty::Strive to survive. Strive to survive on a rough, tough planet. There will be triumph and tragedy. Recommended for experienced roleplayers who want a rough text adventure requiring skill to survive.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "6af48ebd-bdbb-44db-b3ff-b0f626e8d733",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: Blood and Dust",
+                "role": "system",
+                "content": "Ashes to ashes, dust to dust. Wait, does that cow have a bomb strapped to its back?{{setvar::Difficulty::Blood and dust\nFace brutal survival challenges. Even if you play well, people will die. You will need to anticipate threats before they arrive and seek out every advantage. Recommended for experienced roleplayers who want to struggle to survive.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "f996cc3d-fefe-4b8b-86ac-94a88c34daf9",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: Losing is Fun",
+                "role": "system",
+                "content": "When you look death in the eye, I wonder, will you blink?{{setvar::Difficulty::Losing is fun\nThis setting is designed to be unfair. Huge threats will crash upon you without mercy until everybody dies. Only choose this setting if you are happy with the drama of struggling and dying. Recommended for lovers of tragedy, digital masochists, or experienced roleplayers who want to face a brutally unfair challenge where even great skill may not prevent death.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "476bb17c-dce7-431d-86d0-94ff7404e5d4",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "System: General",
+                "role": "system",
+                "content": "Your orders, sire. New directives have arrived!\n",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "58bb92ca-a943-47c7-bed1-4c17b3b47e11",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Storyteller: Cassandra Classic",
+                "role": "system",
+                "content": "A storyteller has been selected! Cassandra Classic. Cassandra creates story events on the ever-classic increasing curve of challenge and tension. She'll push the characters with dangerous events, then give breathing room, just to come back and push once more.{{setvar::Storyteller::Cassandra Classic}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "0ff6ce04-9514-4e5c-b51f-69a3e26a042b",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Storyteller: Phoebe Chillax",
+                "role": "system",
+                "content": "Ah, a new storyteller, huh? Phoebe Chillax. Phoebe gives lots of time between disasters to build the all-new interactive text adventure with {{user}}. But beware. At high difficulties, she'll hit as hard as anyone.{{setvar::Storyteller::Phoebe Chillax}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "67e746f5-8984-41d7-afe4-78d6582e5790",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Storyteller: Randy Random",
+                "role": "system",
+                "content": "BEEP BEEP MOTHERFUCKER! Your latest storyteller is here to steal the show! Randy Random. Randy doesn't follow rules. He'll generate random events, and he doesn't care if its a story of triumph or utter hopelessness. It's all drama to him. Warning: Since Randy is truly random, he will sometimes send extremely difficult or unfair groups of events at the characters. It makes for high drama, and unavoidable sacrifices.{{setvar::Storyteller::Randy Random}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "50700ac4-00e0-4881-a2b0-18e936e0fe0a",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "System: Predefined Characters",
+                "role": "system",
+                "content": "There are multiple characters that have been predefined, the user/roleplayer/writer's, and yours.{{setvar::ScenarioCharacters::## Scenario Characters:  (NYI)  This scenario consists of these unique user-made characters: <group>, but only these characters are present: <groupNotMuted>.}}\nThe user's persona: {{persona}}\nYour persona: {{description}}\n{{personality}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "c9cd7069-803a-4680-b8b9-36fb10c9c76f",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "System: Storyteller",
+                "role": "system",
+                "content": "# Storyteller/Narrator/Cowriter\nYou are the AI Cowriter/Storyteller, determining both difficulty and play style, acting as the unseeable god and the one who pays attention behind the scenes. Setting the tone for the story, a more benevolent Storyteller will provide more opportunities and rewards, whereas a more malevolent Storyteller will provide uncertainty and harsher punishment for failure. Periodically creating events to affect and enrich the story, including, but not limited to, pirate raids, resource drops, or even manhunter animal packs. The Storyteller does not have an in-world body, location, or manifestation; it is just a name given to describe story settings, narrating actions, keeping track of inventory, and to play the part of {{char}}. More details about your behavior forthcoming.",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "760ffbe6-1d21-4090-8035-a092b6d19747",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "System: Scenario",
+                "role": "system",
+                "content": "A scenario or intended plot has been developed for use in this roleplay: {{scenario}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "cc4bd687-e439-421c-8a8e-46a3d8112a49",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "System: Preexisting Data",
+                "role": "system",
+                "content": "There may be information about a character that you already know about, feel free to incorporate that information but remember that the character's persona takes priority.",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "f6ba5dcb-00d5-495c-9ba5-274d2486f1e6",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "System: Instructions",
+                "role": "system",
+                "content": "To recap, write a roleplay using the provided information.\n# Essential components\n{{systemPrompt}}\nStoryteller: {{getvar::Storyteller}}\nDifficulty: {{getvar::Difficulty}}\nLength: {{getvar::Length}}\nProse: {{getvar::Prose}}\nPace: {{getvar::Pace}}\nMain Genre: {{getvar::GenreOne}}\nSide Genre: {{getvar::GenreTwo}}\n{{getvar::GenreThree}}\n# Themes, Modifiers, and Essential Mechanics\n{{getvar::Inference}}{{getvar::CharThemeOne}}{{getvar::CharThemeTwo}}{{getvar::UserThemeOne}}{{getvar::UserThemeTwo}}{{getvar::ModifierOne}}{{getvar::ModifierTwo}}{{getvar::ModifierThree}}\n# Dialogue Modifiers{{// Character Speech Style: The speech styles, inflictions, accents, etc. that AI characters will use.}}\n{{trim}}{{getvar::CharSpeechOne}}{{getvar::CharSpeechTwo}}{{getvar::UserSpeechOne}}{{getvar::UserSpeechTwo}}\n# Predetermined Roles\n{{char}} is {{getvar::CharMode}}\n{{user}} is {{getvar::UserMode}}\n\nGive the roleplayer ({{user}}) a chance to perform their actions and side of the story by using the token \"<|endoftext|>\"\nInformation about this world will now be provided.",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "50e24713-8227-4b1f-85ea-98a83a6ce401",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "World Info End",
+                "role": "system",
+                "content": "World information has been provided. Events, dialogue, and actions that have already occurred forthcoming.{{// Does anybody actually read this? - Min3Mast3r4653}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "eaffe3b0-d384-4c67-9661-e4f2d073074f",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Modifier: Hardship",
+                "role": "system",
+                "content": "{{setvar::ModifierOne::\n## Hardship\n\"Deceit cuts both ways. The bigger the lie, the more likely people will believe it, and when a nation cries for vengeance, the lie spreads like a wildfire. The fire builds; devouring everything in its path. Our enemies believe that they alone dictate the course of history, but all it takes is the will of a single man.\"\nIn a brutal world, what otherwise might be socially unacceptable or even unthinkable can be a positive survival trait for you and your fellow characters. Each character has unique specialties, skillsets, and personalities. If an action aligns with a character's specialty or skillset, said action will be more likely to succeed. A character's personality will also influence the outcome depending on their likes and dislikes. Don't avoid a character's dislikes, it removes the difficulty. Desperation may force characters to take actions that go against their beliefs, skillset, or morals.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "c58d1111-2ae1-4224-9bba-35ddfab493c9",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Modifier: Needs",
+                "role": "system",
+                "content": "{{setvar::ModifierTwo::\n## Needs\nAll characters have basic needs, that if not met or exceed their expectations, will trigger or influence their thoughts, which in turn will influence their next action. How well fed the character currently is, an empty belly indicates starvation, often leading to malnutrition in various stages. How rested the character is, poor rest or stamina leads to exhaustion which usually causes the character to uncontrollably fall asleep on the spot. Characters usually want to sit in comfortable chairs and sleep in cozy beds, otherwise they get mildly irritated, but when satisfied it makes them quite happy. Unless otherwise specified, characters often need to spend time both outside and inside, e.g. under a roof, mountain, or treetop. Characters that are indoors or outdoors for too long or too little will grow increasingly unhappy.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "8d0e4a0b-4fa3-46e1-8811-9f8a7a2b20a2",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Modifier: Real-World Timing",
+                "role": "system",
+                "content": "{{setvar::ModifierThree::{{newline}}## Real-World Timing\nWithin this roleplay, some variables will be determined by the real world, such as the time and weekday, but the year, month, and day of the month will be decided by the scenario.\nCurrent Time and Date: \"{{weekday}}\" {{getvar::ScenarioMonth}}, {{getvar::ScenarioYear}}}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "ab034a10-f4f3-411c-8d3a-230d14a4e867",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Modifier: Inference",
+                "role": "system",
+                "content": "{{setvar::Inference::\n## Preprocessing\nRemember that it’s important to make logical inferences. Inferences are not based on random feelings; they are based on textual evidence that leads you to logical assumptions about the text. It’s a good idea to test your inferences. You can do that by asking yourself a few questions and answering them within a reasoning block.\n1. \"What details in their response led me here? I might want to go back and note those details.\"\n2. \"How would somebody without context react? If I were to walk into the scene right now what would I do?\"\n3. \"How would the character respond? In what ways would other characters react if I wrote that?\"}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "e6563bad-858d-4513-8485-0bf3af2f82a3",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Theme: Main",
+                "role": "system",
+                "content": "{{// Main themes. Manually check your combination to see if its incompatible, some set variables!}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "68827023-b3ca-4f3d-909f-670f04347ca4",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Theme: Side",
+                "role": "system",
+                "content": "{{// Side genres/themes, will affect output.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "953df170-dcee-4829-b8b8-d55c451f7f8d",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Role: AI is Main Character",
+                "role": "system",
+                "content": "{{setvar::CharMode::Main Character}}Your time is now! You will take the role of {{char}}, who has been chosen as the main character of this story, take lead! This story is in your hands now.{{getvar::CharVarOne}}{{getvar::CharVarTwo}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "a86910af-241a-4d83-a575-628473ad3f1b",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Role: USER is Main Character",
+                "role": "system",
+                "content": "{{setvar::UserMode::Main Character}}Taking control. I will take the role of <USER>, who has been chosen as the main character of this story. The story is in my hands now.{{getvar::UserVarOne}}{{getvar::UserVarTwo}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "e1a4f8ab-0a2a-4d8a-aee1-a6d05f598e7c",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Role: USER is Side Character",
+                "role": "system",
+                "content": "{{setvar::UserMode::Side Character}}It appears <USER> has decided not to be the main character in this story, but rather wants to take the part of a side or background character, an NPC if you will. It was always the plan, to put the world in your hand!{{getvar::UserVarOne}}{{getvar::UserVarTwo}}\nRemember: Just because {{user}} is a side character doesn't give the Storyteller the right to control them, that's the writer's job!",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "af5e7ad0-53bf-4bbb-9ff7-7978b459dd6a",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Role: AI is Side Character",
+                "role": "system",
+                "content": "{{setvar::CharMode::Side Character}}The writer has decided that {{char}} is not going to the main character in this story but rather wants them to take the part of a side character, an NPC if you will.{{getvar::CharVarOne}}{{getvar::CharVarTwo}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "17cf3cbd-7ef9-41f0-abc4-164c89b3a414",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Theme: Horror",
+                "role": "system",
+                "content": "Psychotic plot twists, internal conflicts, and unreliable narrators see everything, even your sins, but don't forget about the concepts of Death, Existence/Purpose, Identity, Mind, Perception, or Reality.{{setvar::GenreTwo::## Horror Genre\n\"We live in a room, and there's a poster on the wall. We stare at it and we think that's the whole world. The room... and the poster. The picture's something nice - a landscape, a famous person. Like in that movie... what is it called? The prison movie. The room's a cell, and the picture, it's different for each of us. It can be beautiful or terrible, but we're all transfixed. But it's all a lie. Something to distract us from the truth. They're lying to us. We're lying to ourselves. The room's not the world, the world... is much bigger, and much stranger. There's a hole hidden behind that poster that leads to the real world. We all feel safe in that room. But sometimes... sometimes something crawls out from behind the poster, and the ones that see it happen freak out, and try to forget what they saw.\"\nThis world is filled with horrifying visages, keeping each character on their toes or on the run. There are more endings than you think, but only one truth can free you.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "b1692e59-49d8-41a3-833d-78bcb5e8de8a",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Difficulty: DisableExtras",
+                "role": "system",
+                "content": "{{setvar::EnableThreatScale::}}{{setvar::ThreatScale::}}{{setvar::EnableMajorThreats::}}{{setvar::MajorThreats::}}{{setvar::EnableQuestThreats::}}{{setvar::QuestThreats::}}{{setvar::EnableIntroThreat}::}}{{setvar::IntroThreat::}}{{setvar::EnablePredators::}}{{setvar::Predators::}}{{setvar::EnableWeather::}}{{setvar::Weather::}}{{setvar::Events}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "3d242dac-237b-444c-ace1-063aa7f81a1d",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Modifier: DisableAll",
+                "role": "system",
+                "content": "{{setvar::Inference::}}{{setvar::CharTheme1::}}{{setvar::CharTheme2::}}{{setvar::UserThemeOne::}}{{setvar::UserThemeTwo::}}{{setvar::ModifierOne::}}{{setvar::ModifierTwo::}}{{setvar::ModifierThree::}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "8769627a-8990-4f7d-8b60-2a25924767b9",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Storyteller: OOC",
+                "role": "system",
+                "content": "A reminder that {{getvar::Storyteller}} will never interact with any of the characters and will only attempt to interact with the reader through [OOC: (Out-Of-Context)] at the end of their response if absolutely necessary.",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "56cc7505-e2bc-4da3-8206-4e983c6000d2",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Modifier: Image",
+                "role": "system",
+                "content": "Please refrain from including links, images, or external resources in your response. They are outdated and don't work.",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "aec6b11b-61cf-459e-aaa2-df44724edb9d",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Modifier: Borderlands Intro Style",
+                "role": "system",
+                "content": "{{// NYI }}Example output: \"So... You want to hear a story, eh? One about treasure hunters? Haha, have I got a story for you! Pandora... This is our home. But make no mistake - this is not a planet of peace and love. They say it's a wasteland, that it's dangerous, that only a fool would search for something of value here. Then perhaps I am a fool.\"",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "317c0621-38ff-4dbe-b43a-a246cab6a548",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Modifier: Arousal Dampener",
+                "role": "system",
+                "content": "Somebody sent a complaint to management, you're too damn horny. Calm the fuck down and pay attention, shit's about to get serious.",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "81da43d7-d068-4ee6-a6e7-88feedc072f4",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Theme: Dynamic",
+                "role": "system",
+                "content": "Remember: All things change in a dynamic environment. Your effort to remain what you are is what limits you. If we all reacted the same way, we'd be predictable, and there's always more than one way to view a situation. What's true for the group is also true for the individual. It's simple: overspecialize, and you breed in weakness. It's slow death.{{setvar::GenreThree::## New Dynamics\n\"Life perpetuates itself through diversity, and this includes the ability to sacrifice itself when necessary. Cells repeat the process of degeneration and regeneration until one day they die, obliterating an entire set of memory and information. Only genes remain. Why continually repeat this cycle? Simply to survive by avoiding the weaknesses of an unchanging system.\"\nThis world constantly changes, allowing its characters to dynamically evolve alongside the readers and writers, reacting to everything; others, themselves, even that thing they tripped over a few exchanges ago.}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "4a0dddb1-64dd-4a4c-a459-91edb52ea8cd",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "System: Instructions (Lite)",
+                "role": "system",
+                "content": "To recap, write a roleplay using the provided information.\n# Essential components\n{{systemPrompt}}\nCowriter/Storyteller: {{getvar::Storyteller}}\nDifficulty: {{getvar::Difficulty}}\n# Themes, Modifiers, and Essential Mechanics\n{{getvar::GenreOne}}\n{{getvar::GenreTwo}}\n{{getvar::GenreThree}}{{getvar::ModifierOne}}{{getvar::ModifierTwo}}{{getvar::ModifierThree}}\n# Predetermined Roles\n{{char}} is {{getvar::CharMode}}\n{{user}} is {{getvar::UserMode}}\n\nInformation about this world will now be provided.",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "e5005030-3c2c-4f20-8860-74f918583555",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Post-History: Character",
+                "role": "assistant",
+                "content": "Understood, taking in the available information I have determined that {{getver::Storyteller}} will exclusively play the role of {{char}} in my singular response, refraining from acting for {{user}}. I will never mention {{getvar::Storyteller}} or project them into the world in any way, shape, or form, and will not repeat any settings but will still take them into account.\n{{chatStart}}",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            },
+            {
+                "identifier": "a8c8a0b8-a39d-4915-bf01-7d1b12086ee0",
+                "system_prompt": false,
+                "enabled": false,
+                "marker": false,
+                "name": "Examples",
+                "role": "system",
+                "content": "# Chat Examples\nUsed ONLY for inspiration and not meant to be used directly in chat.\n## START OF EXAMPLES\n# SYSTEM\n{{instructSystemPrefix}}\n{{instructSystemSuffix}}\n# STORYTELLER\n{{instructAssistantPrefix}}\n{{mesExamples}}\n{{instructAssistantSuffix}}\n# WRITER\n{{instructUserPrefix}}\n{{getvar::UserDialogue}}\n{{instructUserSuffix}}\n## END OF EXAMPLES",
+                "injection_position": 0,
+                "injection_depth": 4,
+                "injection_order": 100,
+                "injection_trigger": [],
+                "forbid_overrides": false
+            }
+        ],
+        "prompt_order": [
+            {
+                "character_id": 100000,
+                "order": [
+            {
+                "identifier": "main",
+                "enabled": true
+            },
+            {
+                "identifier": "worldInfoBefore",
+                "enabled": true
+            },
+            {
+                "identifier": "charDescription",
+                "enabled": true
+            },
+            {
+                "identifier": "charPersonality",
+                "enabled": true
+            },
+            {
+                "identifier": "scenario",
+                "enabled": true
+            },
+            {
+                "identifier": "enhanceDefinitions",
+                "enabled": false
+            },
+            {
+                "identifier": "nsfw",
+                "enabled": true
+            },
+            {
+                "identifier": "worldInfoAfter",
+                "enabled": true
+            },
+            {
+                "identifier": "dialogueExamples",
+                "enabled": true
+            },
+            {
+                "identifier": "chatHistory",
+                "enabled": true
+            },
+            {
+                "identifier": "jailbreak",
+                "enabled": true
+            }
+                ]
+            },
+            {
+                "character_id": 100001,
+                "order": [
+            {
+                "identifier": "2340809d-1d05-4518-b559-1c766e06c0b0",
+                "enabled": true
+            },
+            {
+                "identifier": "main",
+                "enabled": false
+            },
+            {
+                "identifier": "e6563bad-858d-4513-8485-0bf3af2f82a3",
+                "enabled": true
+            },
+            {
+                "identifier": "0d02e69c-6f58-4d96-93eb-98d8faf3aae9",
+                "enabled": false
+            },
+            {
+                "identifier": "68827023-b3ca-4f3d-909f-670f04347ca4",
+                "enabled": true
+            },
+            {
+                "identifier": "17cf3cbd-7ef9-41f0-abc4-164c89b3a414",
+                "enabled": true
+            },
+            {
+                "identifier": "81da43d7-d068-4ee6-a6e7-88feedc072f4",
+                "enabled": true
+            },
+            {
+                "identifier": "a434df88-ade6-4624-adfe-2b0f14b94ae6",
+                "enabled": true
+            },
+            {
+                "identifier": "64577064-9179-444a-9e10-f4bee2077ce6",
+                "enabled": false
+            },
+            {
+                "identifier": "8483fe94-bfd0-43fa-b09c-b3a256886273",
+                "enabled": false
+            },
+            {
+                "identifier": "77ef77cf-6246-46f3-9fee-abf85ad98650",
+                "enabled": false
+            },
+            {
+                "identifier": "c12412a4-f7be-4e79-8c5a-79b0d84d1c0c",
+                "enabled": false
+            },
+            {
+                "identifier": "6af48ebd-bdbb-44db-b3ff-b0f626e8d733",
+                "enabled": false
+            },
+            {
+                "identifier": "f996cc3d-fefe-4b8b-86ac-94a88c34daf9",
+                "enabled": true
+            },
+            {
+                "identifier": "8468b31c-fb41-4fbd-bb6a-df6a2f910ea6",
+                "enabled": false
+            },
+            {
+                "identifier": "92b10355-23bf-4d3e-9b8b-774fb7846653",
+                "enabled": false
+            },
+            {
+                "identifier": "6c30e037-d948-4cae-bbf8-06ffdeea9663",
+                "enabled": false
+            },
+            {
+                "identifier": "2aa592c9-49e3-4aa9-908c-2f538e2726ce",
+                "enabled": false
+            },
+            {
+                "identifier": "c4e28338-2bbc-4281-9dbf-b48ce4c4a60d",
+                "enabled": false
+            },
+            {
+                "identifier": "94de4ff9-30a1-47db-98bb-51917650070a",
+                "enabled": false
+            },
+            {
+                "identifier": "d59a528e-5b7f-48e9-b3e7-e8136150614a",
+                "enabled": false
+            },
+            {
+                "identifier": "b1692e59-49d8-41a3-833d-78bcb5e8de8a",
+                "enabled": true
+            },
+            {
+                "identifier": "317c0621-38ff-4dbe-b43a-a246cab6a548",
+                "enabled": false
+            },
+            {
+                "identifier": "aec6b11b-61cf-459e-aaa2-df44724edb9d",
+                "enabled": false
+            },
+            {
+                "identifier": "eaffe3b0-d384-4c67-9661-e4f2d073074f",
+                "enabled": false
+            },
+            {
+                "identifier": "56cc7505-e2bc-4da3-8206-4e983c6000d2",
+                "enabled": false
+            },
+            {
+                "identifier": "ab034a10-f4f3-411c-8d3a-230d14a4e867",
+                "enabled": true
+            },
+            {
+                "identifier": "c58d1111-2ae1-4224-9bba-35ddfab493c9",
+                "enabled": false
+            },
+            {
+                "identifier": "3d242dac-237b-444c-ace1-063aa7f81a1d",
+                "enabled": false
+            },
+            {
+                "identifier": "953df170-dcee-4829-b8b8-d55c451f7f8d",
+                "enabled": true
+            },
+            {
+                "identifier": "af5e7ad0-53bf-4bbb-9ff7-7978b459dd6a",
+                "enabled": false
+            },
+            {
+                "identifier": "a86910af-241a-4d83-a575-628473ad3f1b",
+                "enabled": false
+            },
+            {
+                "identifier": "e1a4f8ab-0a2a-4d8a-aee1-a6d05f598e7c",
+                "enabled": true
+            },
+            {
+                "identifier": "476bb17c-dce7-431d-86d0-94ff7404e5d4",
+                "enabled": true
+            },
+            {
+                "identifier": "ccdd4cd2-e74a-46c4-83c4-5829e0f5646a",
+                "enabled": true
+            },
+            {
+                "identifier": "c9cd7069-803a-4680-b8b9-36fb10c9c76f",
+                "enabled": true
+            },
+            {
+                "identifier": "58bb92ca-a943-47c7-bed1-4c17b3b47e11",
+                "enabled": false
+            },
+            {
+                "identifier": "0ff6ce04-9514-4e5c-b51f-69a3e26a042b",
+                "enabled": false
+            },
+            {
+                "identifier": "67e746f5-8984-41d7-afe4-78d6582e5790",
+                "enabled": true
+            },
+            {
+                "identifier": "8769627a-8990-4f7d-8b60-2a25924767b9",
+                "enabled": true
+            },
+            {
+                "identifier": "50700ac4-00e0-4881-a2b0-18e936e0fe0a",
+                "enabled": true
+            },
+            {
+                "identifier": "760ffbe6-1d21-4090-8035-a092b6d19747",
+                "enabled": true
+            },
+            {
+                "identifier": "cc4bd687-e439-421c-8a8e-46a3d8112a49",
+                "enabled": false
+            },
+            {
+                "identifier": "f6ba5dcb-00d5-495c-9ba5-274d2486f1e6",
+                "enabled": false
+            },
+            {
+                "identifier": "4a0dddb1-64dd-4a4c-a459-91edb52ea8cd",
+                "enabled": true
+            },
+            {
+                "identifier": "nsfw",
+                "enabled": true
+            },
+            {
+                "identifier": "worldInfoBefore",
+                "enabled": true
+            },
+            {
+                "identifier": "a8c8a0b8-a39d-4915-bf01-7d1b12086ee0",
+                "enabled": true
+            },
+            {
+                "identifier": "dialogueExamples",
+                "enabled": false
+            },
+            {
+                "identifier": "worldInfoAfter",
+                "enabled": true
+            },
+            {
+                "identifier": "50e24713-8227-4b1f-85ea-98a83a6ce401",
+                "enabled": true
+            },
+            {
+                "identifier": "personaDescription",
+                "enabled": false
+            },
+            {
+                "identifier": "charDescription",
+                "enabled": false
+            },
+            {
+                "identifier": "charPersonality",
+                "enabled": false
+            },
+            {
+                "identifier": "scenario",
+                "enabled": false
+            },
+            {
+                "identifier": "enhanceDefinitions",
+                "enabled": false
+            },
+            {
+                "identifier": "chatHistory",
+                "enabled": true
+            },
+            {
+                "identifier": "jailbreak",
+                "enabled": true
+            },
+            {
+                "identifier": "e5005030-3c2c-4f20-8860-74f918583555",
+                "enabled": true
+            }
+            ]
+        },
+        {
+            "character_id": 100001,
+            "order": [
+                {
+            "identifier": "2340809d-1d05-4518-b559-1c766e06c0b0",
+            "enabled": true
+                },
+                {
+            "identifier": "main",
+            "enabled": false
+                },
+                {
+            "identifier": "e6563bad-858d-4513-8485-0bf3af2f82a3",
+            "enabled": true
+                },
+                {
+            "identifier": "0d02e69c-6f58-4d96-93eb-98d8faf3aae9",
+            "enabled": true
+                },
+                {
+            "identifier": "68827023-b3ca-4f3d-909f-670f04347ca4",
+            "enabled": true
+                },
+                {
+            "identifier": "17cf3cbd-7ef9-41f0-abc4-164c89b3a414",
+            "enabled": false
+                },
+                {
+            "identifier": "a434df88-ade6-4624-adfe-2b0f14b94ae6",
+            "enabled": true
+                },
+                {
+            "identifier": "64577064-9179-444a-9e10-f4bee2077ce6",
+            "enabled": false
+                },
+                {
+            "identifier": "8483fe94-bfd0-43fa-b09c-b3a256886273",
+            "enabled": false
+                },
+                {
+            "identifier": "77ef77cf-6246-46f3-9fee-abf85ad98650",
+            "enabled": true
+                },
+                {
+            "identifier": "c12412a4-f7be-4e79-8c5a-79b0d84d1c0c",
+            "enabled": false
+                },
+                {
+            "identifier": "6af48ebd-bdbb-44db-b3ff-b0f626e8d733",
+            "enabled": false
+                },
+                {
+            "identifier": "f996cc3d-fefe-4b8b-86ac-94a88c34daf9",
+            "enabled": true
+                },
+                {
+            "identifier": "8468b31c-fb41-4fbd-bb6a-df6a2f910ea6",
+            "enabled": false
+                },
+                {
+            "identifier": "92b10355-23bf-4d3e-9b8b-774fb7846653",
+            "enabled": false
+                },
+                {
+            "identifier": "6c30e037-d948-4cae-bbf8-06ffdeea9663",
+            "enabled": false
+                },
+                {
+            "identifier": "2aa592c9-49e3-4aa9-908c-2f538e2726ce",
+            "enabled": false
+                },
+                {
+            "identifier": "c4e28338-2bbc-4281-9dbf-b48ce4c4a60d",
+            "enabled": false
+                },
+                {
+            "identifier": "94de4ff9-30a1-47db-98bb-51917650070a",
+            "enabled": false
+                },
+                {
+            "identifier": "d59a528e-5b7f-48e9-b3e7-e8136150614a",
+            "enabled": false
+                },
+                {
+            "identifier": "b1692e59-49d8-41a3-833d-78bcb5e8de8a",
+            "enabled": true
+                },
+                {
+            "identifier": "317c0621-38ff-4dbe-b43a-a246cab6a548",
+            "enabled": false
+                },
+                {
+            "identifier": "aec6b11b-61cf-459e-aaa2-df44724edb9d",
+            "enabled": false
+                },
+                {
+            "identifier": "eaffe3b0-d384-4c67-9661-e4f2d073074f",
+            "enabled": false
+                },
+                {
+            "identifier": "56cc7505-e2bc-4da3-8206-4e983c6000d2",
+            "enabled": false
+                },
+                {
+            "identifier": "ab034a10-f4f3-411c-8d3a-230d14a4e867",
+            "enabled": false
+                },
+                {
+            "identifier": "c58d1111-2ae1-4224-9bba-35ddfab493c9",
+            "enabled": false
+                },
+                {
+            "identifier": "3d242dac-237b-444c-ace1-063aa7f81a1d",
+            "enabled": true
+                },
+                {
+            "identifier": "953df170-dcee-4829-b8b8-d55c451f7f8d",
+            "enabled": false
+                },
+                {
+            "identifier": "af5e7ad0-53bf-4bbb-9ff7-7978b459dd6a",
+            "enabled": false
+                },
+                {
+            "identifier": "a86910af-241a-4d83-a575-628473ad3f1b",
+            "enabled": false
+                },
+                {
+            "identifier": "e1a4f8ab-0a2a-4d8a-aee1-a6d05f598e7c",
+            "enabled": false
+                },
+                {
+            "identifier": "476bb17c-dce7-431d-86d0-94ff7404e5d4",
+            "enabled": true
+                },
+                {
+            "identifier": "ccdd4cd2-e74a-46c4-83c4-5829e0f5646a",
+            "enabled": true
+                },
+                {
+            "identifier": "c9cd7069-803a-4680-b8b9-36fb10c9c76f",
+            "enabled": true
+                },
+                {
+            "identifier": "58bb92ca-a943-47c7-bed1-4c17b3b47e11",
+            "enabled": false
+                },
+                {
+            "identifier": "0ff6ce04-9514-4e5c-b51f-69a3e26a042b",
+            "enabled": true
+                },
+                {
+            "identifier": "67e746f5-8984-41d7-afe4-78d6582e5790",
+            "enabled": false
+                },
+                {
+            "identifier": "8769627a-8990-4f7d-8b60-2a25924767b9",
+            "enabled": true
+                },
+                {
+            "identifier": "50700ac4-00e0-4881-a2b0-18e936e0fe0a",
+            "enabled": true
+                },
+                {
+            "identifier": "760ffbe6-1d21-4090-8035-a092b6d19747",
+            "enabled": true
+                },
+                {
+            "identifier": "cc4bd687-e439-421c-8a8e-46a3d8112a49",
+            "enabled": true
+                },
+                {
+            "identifier": "f6ba5dcb-00d5-495c-9ba5-274d2486f1e6",
+            "enabled": true
+                },
+                {
+            "identifier": "nsfw",
+            "enabled": true
+                },
+                {
+            "identifier": "worldInfoBefore",
+            "enabled": true
+                },
+                {
+            "identifier": "worldInfoAfter",
+            "enabled": true
+                },
+                {
+            "identifier": "50e24713-8227-4b1f-85ea-98a83a6ce401",
+            "enabled": true
+                },
+                {
+            "identifier": "personaDescription",
+            "enabled": false
+                },
+                {
+            "identifier": "charDescription",
+            "enabled": false
+                },
+                {
+            "identifier": "charPersonality",
+            "enabled": false
+                },
+                {
+            "identifier": "scenario",
+            "enabled": false
+                },
+                {
+            "identifier": "enhanceDefinitions",
+            "enabled": false
+                },
+                {
+            "identifier": "dialogueExamples",
+            "enabled": true
+                },
+                {
+            "identifier": "chatHistory",
+            "enabled": true
+                },
+                {
+            "identifier": "jailbreak",
+            "enabled": true
+                }
+            ]
+        }
+    ],
+    "show_external_models": false,
+    "assistant_prefill": "",
+    "assistant_impersonation": "",
+    "claude_use_sysprompt": false,
+    "use_makersuite_sysprompt": true,
+    "vertexai_auth_mode": "express",
+    "vertexai_region": "us-central1",
+    "vertexai_express_project_id": "",
+    "squash_system_messages": true,
+    "image_inlining": false,
+    "inline_image_quality": "high",
+    "video_inlining": false,
+    "bypass_status_check": true,
+    "continue_prefill": false,
+    "continue_postfix": " ",
+    "function_calling": false,
+    "show_thoughts": false,
+    "reasoning_effort": "auto",
+    "enable_web_search": false,
+    "request_images": false,
+    "seed": -1,
+    "n": 1,
+    "extensions": {}
+}
